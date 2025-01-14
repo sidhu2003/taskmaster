@@ -2,7 +2,6 @@
 *.iml
 *.ipr
 *.iws
-*.jar
 *.sw?
 *~
 .#*
@@ -41,4 +40,4 @@ secrets.yml
 .sts4-cache
 .git-hooks/
 node_modules
-*/application.properties
+src/main/resources/application.properties
