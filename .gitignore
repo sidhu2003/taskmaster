@@ -40,4 +40,4 @@ secrets.yml
 .sts4-cache
 .git-hooks/
 node_modules
-./docker-compose.yml
+docker-compose.yaml
