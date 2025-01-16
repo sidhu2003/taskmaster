@@ -41,3 +41,4 @@ secrets.yml
 .git-hooks/
 node_modules
 docker-compose.yaml
+terraform
