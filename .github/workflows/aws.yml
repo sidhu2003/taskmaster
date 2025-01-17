@@ -5,13 +5,13 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: MY_AWS_REGION                  
-  ECR_REPOSITORY: MY_ECR_REPOSITORY           
-  ECS_SERVICE: MY_ECS_SERVICE                 
-  ECS_CLUSTER: MY_ECS_CLUSTER                 
-  ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION 
-                                               
-  CONTAINER_NAME: MY_CONTAINER_NAME           
+  AWS_REGION: ${{env.MY_AWS_REGION}}                
+  ECR_REPOSITORY: ${{env.MY_ECR_REPOSITORY}}          
+  ECS_SERVICE: ${{env.MY_ECS_SERVICE}}                 
+  ECS_CLUSTER: ${{env.MY_ECS_CLUSTER}}                 
+  ECS_TASK_DEFINITION: ${{env.MY_ECS_TASK_DEFINITION}}                               
+  CONTAINER_NAME: ${{env.CONTAINER_NAME}}
+  ECR_REGISTRY: ${{env.ECR_REGISTRY}}          
                                                
 
 permissions:
