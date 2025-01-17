@@ -4,6 +4,15 @@ on:
   push:
     branches: [ "main" ]
 
+env:
+  AWS_REGION: 'ap-south-1'              
+  ECR_REPOSITORY: 'my-app-repo'         
+  ECS_SERVICE: 'my-app'                
+  ECS_CLUSTER: 'my-app'                
+  ECS_TASK_DEFINITION: './aws/task-definition.json'                               
+  CONTAINER_NAME: 'my-app'
+  ECR_REGISTRY: '817780818534.dkr.ecr.ap-south-1.amazonaws.com'                                                
+
 permissions:
   contents: read
 
