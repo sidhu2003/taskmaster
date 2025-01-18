@@ -92,7 +92,7 @@ jobs:
     - name: Running Automated API Tests for Production
       run: |
           newman run postman-collection.json \
-            --env-var baseUrl="http://taskmaster-alb-1459749126.ap-south-1.elb.amazonaws.com/api" \
+            --env-var baseUrl="http://taskmaster-alb-945439181.ap-south-1.elb.amazonaws.com/api" \
             --env-var taskId=$taskId \
             --reporters cli,junit --reporter-junit-export "newman-report.xml"
     
