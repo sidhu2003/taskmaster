@@ -17,7 +17,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"title\": \"Test Task\", \"description\": \"This is a test task\", \"completed\": false}"
+          "raw": "{\"id\": \"{{taskId}}\", \"title\": \"Test Task\", \"description\": \"This is a test task\", \"completed\": false}"
         },
         "url": {
           "raw": "{{baseUrl}}/tasks",
@@ -65,7 +65,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\"title\": \"Updated Task\", \"description\": \"Updated description\", \"completed\": true}"
+          "raw": "{\"id\": \"{{taskId}}\", \"title\": \"Updated Task\", \"description\": \"Updated description\", \"completed\": true}"
         },
         "url": {
           "raw": "{{baseUrl}}/tasks/{{taskId}}",
