@@ -90,10 +90,14 @@ jobs:
   
     - name: Install Newman
       run: npm install -g newman
-      
+  
+    - name: Generate dynamic taskId
+      id: generate-task-id
+      run: echo "taskId=$(date +%s)" >> $GITHUB_ENV
+  
     - name: Running Automated API Tests for Production
       run: |
           newman run postman-collection.json \
             --env-var baseUrl="http://taskmaster-alb-1459749126.ap-south-1.elb.amazonaws.com/api" \
-            --reporters cli,json \
-            --reporter-json-export api-test-results.json
+            --env-var taskId=$taskId \
+            --reporters cli,junit --reporter-junit-export "newman-report.xml"
