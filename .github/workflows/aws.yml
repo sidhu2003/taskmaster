@@ -82,3 +82,21 @@ jobs:
         service: ${{ secrets.ECS_SERVICE }}
         cluster: ${{ secrets.ECS_CLUSTER }}
         wait-for-service-stability: true
+
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+  
+    - name: Install Newman
+      run: npm install -g newman
+  
+    - name: Generate dynamic taskId
+      id: generate-task-id
+      run: echo "taskId=$(date +%s)" >> $GITHUB_ENV
+  
+    - name: Running Automated API Tests for Production
+      run: |
+          newman run postman-collection.json \
+            --env-var baseUrl="${{secrets.baseURL}}" \
+            --env-var taskId=$taskId
