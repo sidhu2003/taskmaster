@@ -93,7 +93,7 @@ jobs:
   
     - name: Generate dynamic taskId
       id: generate-task-id
-      run: echo "taskId=$(date +%s)" >> $GITHUB_ENV
+      run: echo "taskId=$((GITHUB_RUN_NUMBER - 14))" >> $GITHUB_ENV
   
     - name: Running Automated API Tests for Production
       run: |
@@ -101,3 +101,12 @@ jobs:
             --env-var baseUrl="http://taskmaster-alb-1459749126.ap-south-1.elb.amazonaws.com/api" \
             --env-var taskId=$taskId \
             --reporters cli,junit --reporter-junit-export "newman-report.xml"
+    
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: newman-report
+        path: newman-report.xml
+        retention-days: 30
+          
+      
